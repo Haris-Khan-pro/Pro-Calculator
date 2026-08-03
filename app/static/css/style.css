@@ -1,75 +1,251 @@
+/* ==========================================
+   Reset
+========================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==========================================
+   Variables
+========================================== */
+
+:root {
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --border-color: #0b3954;
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #6b7280;
+
+  --border-radius: 24px;
+
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   Base Styles
+========================================== */
+
 body {
   min-height: 100vh;
 
-  background: #0f172a;
-
-  color: white;
-
-  font-family: Inter, Arial, sans-serif;
-
   display: flex;
-
   flex-direction: column;
+
+  background: var(--background-color);
+
+  color: var(--text-primary);
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
-header {
+/* ==========================================
+   Header
+========================================== */
+
+.app-header {
   height: 80px;
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid var(--surface-color);
 }
 
-header h1 {
+.app-header h1 {
   font-size: 2rem;
-
   font-weight: 700;
 }
 
-main {
+/* ==========================================
+   Main
+========================================== */
+
+.app-main {
   flex: 1;
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   padding: 40px;
 }
 
+/* ==========================================
+   Calculator
+========================================== */
+
 .calculator {
   width: 420px;
-
   height: 650px;
 
-  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
 
-  background: #1e293b;
+  background: var(--surface-color);
 
-  border: 1px solid #334155;
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--border-radius);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
 }
 
-footer {
+/* ==========================================
+   Calculator Header
+========================================== */
+
+.calculator-header {
+  height: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.calculator-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   Calculator Display
+========================================== */
+
+.calculator-display {
+  height: 150px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  padding: 25px;
+}
+
+.calculator-display {
+  height: 170px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* ==========================================
+   Calculator Keypad
+========================================== */
+
+.calculator-keypad {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+/* ==========================================
+   Footer
+========================================== */
+
+.app-footer {
   height: 60px;
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
-  color: #94a3b8;
+  border-top: 1px solid var(--surface-color);
+}
 
-  border-top: 1px solid #1e293b;
+.app-footer p {
+  font-size: 0.75rem;
+
+  color: var(--text-muted);
+
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 500px) {
+  .app-main {
+    padding: 20px;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: 420px;
+    height: 650px;
+  }
+}
+
+/* ==========================================
+   Calculator Buttons
+========================================== */
+
+.btn {
+  border: none;
+
+  border-radius: 16px;
+
+  background: #334155;
+
+  color: white;
+
+  font-size: 1.2rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #475569;
+
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-secondary {
+  background: #475569;
+}
+
+.btn-operator {
+  background: #2563eb;
+}
+
+.btn-equals {
+  background: #16a34a;
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+.display-history {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.display-result {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }

@@ -12,16 +12,52 @@
   </head>
 
   <body>
-    <header>
+    <header class="app-header">
       <h1>ProCalculator</h1>
     </header>
 
-    <main>
-      <section class="calculator"></section>
+    <main class="app-main">
+      <section class="calculator">
+        <header class="calculator-header">
+          <h2>Standard Calculator</h2>
+        </header>
+
+        <section class="calculator-display">
+          <div class="display-history">125 × 6</div>
+
+          <div class="display-result">750</div>
+        </section>
+
+        <section class="calculator-keypad">
+          <button class="btn btn-secondary">C</button>
+          <button class="btn btn-secondary">±</button>
+          <button class="btn btn-secondary">%</button>
+          <button class="btn btn-operator">÷</button>
+
+          <button class="btn">7</button>
+          <button class="btn">8</button>
+          <button class="btn">9</button>
+          <button class="btn btn-operator">×</button>
+
+          <button class="btn">4</button>
+          <button class="btn">5</button>
+          <button class="btn">6</button>
+          <button class="btn btn-operator">−</button>
+
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <button class="btn btn-operator">+</button>
+
+          <button class="btn btn-zero">0</button>
+          <button class="btn">.</button>
+          <button class="btn btn-equals">=</button>
+        </section>
+      </section>
     </main>
 
-    <footer>
-      <p>Built with FastAPI • Day 1 / 50</p>
+    <footer class="app-footer">
+      <p>© 2026 Haris Khan • Open Source • Built for Learning & Practice</p>
     </footer>
 
     <script src="/static/js/script.js"></script>
