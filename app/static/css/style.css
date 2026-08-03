@@ -1,90 +1,75 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
+body {
+  min-height: 100vh;
 
-    min-height:100vh;
+  background: #0f172a;
 
-    background:#0f172a;
+  color: white;
 
-    color:white;
+  font-family: Inter, Arial, sans-serif;
 
-    font-family:
-    Inter,
-    Arial,
-    sans-serif;
+  display: flex;
 
-    display:flex;
-
-    flex-direction:column;
-
+  flex-direction: column;
 }
 
-header{
+header {
+  height: 80px;
 
-    height:80px;
+  display: flex;
 
-    display:flex;
+  justify-content: center;
 
-    justify-content:center;
+  align-items: center;
 
-    align-items:center;
-
-    border-bottom:1px solid #1e293b;
-
+  border-bottom: 1px solid #1e293b;
 }
 
-header h1{
+header h1 {
+  font-size: 2rem;
 
-    font-size:2rem;
-
-    font-weight:700;
-
+  font-weight: 700;
 }
 
-main{
+main {
+  flex: 1;
 
-    flex:1;
+  display: flex;
 
-    display:flex;
+  justify-content: center;
 
-    justify-content:center;
+  align-items: center;
 
-    align-items:center;
-
-    padding:40px;
-
+  padding: 40px;
 }
 
-.calculator{
+.calculator {
+  width: 420px;
 
-    width:420px;
+  height: 650px;
 
-    height:650px;
+  border-radius: 24px;
 
-    border-radius:24px;
+  background: #1e293b;
 
-    background:#1e293b;
-
-    border:1px solid #334155;
-
+  border: 1px solid #334155;
 }
 
-footer{
+footer {
+  height: 60px;
 
-    height:60px;
+  display: flex;
 
-    display:flex;
+  justify-content: center;
 
-    justify-content:center;
+  align-items: center;
 
-    align-items:center;
+  color: #94a3b8;
 
-    color:#94a3b8;
-
-    border-top:1px solid #1e293b;
-
+  border-top: 1px solid #1e293b;
 }
