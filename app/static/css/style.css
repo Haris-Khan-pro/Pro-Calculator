@@ -1,17 +1,90 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background: #121212;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+body{
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height:100vh;
 
-    height: 100vh;
+    background:#0f172a;
+
+    color:white;
+
+    font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+header{
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-bottom:1px solid #1e293b;
+
+}
+
+header h1{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+main{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.calculator{
+
+    width:420px;
+
+    height:650px;
+
+    border-radius:24px;
+
+    background:#1e293b;
+
+    border:1px solid #334155;
+
+}
+
+footer{
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#94a3b8;
+
+    border-top:1px solid #1e293b;
+
 }
