@@ -1,65 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
     <title>ProCalculator</title>
-    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
 
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="icon"
+      href="/static/images/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/static/css/style.css"
+    />
   </head>
 
   <body>
+
+    <!-- ==========================
+         Header
+    =========================== -->
+
     <header class="app-header">
       <h1>ProCalculator</h1>
     </header>
 
+    <!-- ==========================
+         Main
+    =========================== -->
+
     <main class="app-main">
+
       <section class="calculator">
+
+        <!-- Calculator Header -->
+
         <header class="calculator-header">
           <h2>Standard Calculator</h2>
         </header>
 
-        <section class="calculator-display">
-          <div class="display-history">125 × 6</div>
+        <!-- Calculator Display -->
 
-          <div class="display-result">750</div>
+        <section class="calculator-display">
+
+          <div class="display-history"></div>
+
+          <div class="display-result">
+            0
+          </div>
+
         </section>
+
+        <!-- Calculator Keypad -->
 
         <section class="calculator-keypad">
+
+          <!-- Row 1 -->
+
+          <button class="btn btn-secondary">⌫</button>
+
           <button class="btn btn-secondary">C</button>
+
           <button class="btn btn-secondary">±</button>
-          <button class="btn btn-secondary">%</button>
+
           <button class="btn btn-operator">÷</button>
 
+          <!-- Row 2 -->
+
           <button class="btn">7</button>
+
           <button class="btn">8</button>
+
           <button class="btn">9</button>
+
           <button class="btn btn-operator">×</button>
 
+          <!-- Row 3 -->
+
           <button class="btn">4</button>
+
           <button class="btn">5</button>
+
           <button class="btn">6</button>
+
           <button class="btn btn-operator">−</button>
 
+          <!-- Row 4 -->
+
           <button class="btn">1</button>
+
           <button class="btn">2</button>
+
           <button class="btn">3</button>
+
           <button class="btn btn-operator">+</button>
 
+          <!-- Row 5 -->
+
           <button class="btn btn-zero">0</button>
+
           <button class="btn">.</button>
+
+          <button class="btn btn-secondary">%</button>
+
           <button class="btn btn-equals">=</button>
+
         </section>
+
       </section>
+
     </main>
 
+    <!-- ==========================
+         Footer
+    =========================== -->
+
     <footer class="app-footer">
-      <p>© 2026 Haris Khan • Open Source • Built for Learning & Practice</p>
+
+      <p>
+        © 2026 Haris Khan &bull; Open Source &bull;
+        <span class="footer-line2">
+          Built for Learning &amp; Practice
+        </span>
+      </p>
+
     </footer>
 
     <script src="/static/js/script.js"></script>
+
   </body>
 </html>

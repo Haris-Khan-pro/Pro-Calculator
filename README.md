@@ -60,7 +60,7 @@ ProCalc-Web/
 ## 🚀 Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Haris-Khan-pro/Pro-Calculator.git
 
 cd ProCalc-Web
 
@@ -70,7 +70,7 @@ source .venv/Scripts/activate
 
 pip install -r requirements.txt
 
-uvicorn app.main:app --reload
+uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
 ---
