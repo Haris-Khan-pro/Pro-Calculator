@@ -2,19 +2,26 @@
    Reset
 ========================================== */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* ==========================================
-   Variables
+   Root Variables
 ========================================== */
 
 :root {
   --background-color: #0f172a;
   --surface-color: #1e293b;
+  --surface-light: #334155;
+
+  --primary-color: #2563eb;
+  --success-color: #16a34a;
+
   --border-color: #0b3954;
 
   --text-primary: #ffffff;
@@ -22,13 +29,21 @@
   --text-muted: #6b7280;
 
   --border-radius: 24px;
+  --button-radius: 16px;
 
-  --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  --shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25);
+
+  --transition: 0.2s ease;
 }
 
 /* ==========================================
-   Base Styles
+   Base
 ========================================== */
+
+html {
+  font-size: 16px;
+}
 
 body {
   min-height: 100vh;
@@ -40,7 +55,11 @@ body {
 
   color: var(--text-primary);
 
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
 /* ==========================================
@@ -54,12 +73,13 @@ body {
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid var(--surface-color);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .app-header h1 {
   font-size: 2rem;
   font-weight: 700;
+  letter-spacing: .03em;
 }
 
 /* ==========================================
@@ -73,23 +93,25 @@ body {
   justify-content: center;
   align-items: center;
 
-  padding: 40px;
+  padding: 32px;
 }
 
 /* ==========================================
-   Calculator
+   Calculator Card
 ========================================== */
 
 .calculator {
   width: 420px;
-  height: 650px;
+  max-width: 100%;
+
+  min-height: 670px;
 
   display: flex;
   flex-direction: column;
 
   background: var(--surface-color);
 
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255,255,255,.05);
 
   border-radius: var(--border-radius);
 
@@ -103,18 +125,20 @@ body {
 ========================================== */
 
 .calculator-header {
-  height: 70px;
+  height: 72px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .calculator-header h2 {
   font-size: 1rem;
   font-weight: 600;
+
+  color: var(--text-secondary);
 }
 
 /* ==========================================
@@ -122,23 +146,60 @@ body {
 ========================================== */
 
 .calculator-display {
-  height: 150px;
+  min-height: 150px;
 
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  padding: 25px;
-}
-
-.calculator-display {
-  height: 170px;
-  padding: 25px;
   display: flex;
   flex-direction: column;
+
   justify-content: flex-end;
-  align-items: flex-end;
+
   gap: 10px;
+
+  padding: 24px;
+
+  border-bottom: 1px solid rgba(255,255,255,.04);
+
+  overflow: hidden;
+}
+
+.display-history {
+  width: 100%;
+
+  text-align: right;
+
+  color: var(--text-secondary);
+
+  font-size: .95rem;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.display-result {
+  width: 100%;
+
+  text-align: right;
+
+  font-size: clamp(2rem, 7vw, 3.4rem);
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+
+  white-space: nowrap;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+}
+
+.display-result::-webkit-scrollbar {
+  display: none;
 }
 
 /* ==========================================
@@ -147,48 +208,14 @@ body {
 
 .calculator-keypad {
   flex: 1;
+
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+
+  gap: 14px;
+
   padding: 20px;
-}
-
-/* ==========================================
-   Footer
-========================================== */
-
-.app-footer {
-  height: 60px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-top: 1px solid var(--surface-color);
-}
-
-.app-footer p {
-  font-size: 0.75rem;
-
-  color: var(--text-muted);
-
-  letter-spacing: 0.05em;
-}
-
-/* ==========================================
-   Responsive
-========================================== */
-
-@media (max-width: 500px) {
-  .app-main {
-    padding: 20px;
-  }
-
-  .calculator {
-    width: 100%;
-    max-width: 420px;
-    height: 650px;
-  }
 }
 
 /* ==========================================
@@ -198,54 +225,298 @@ body {
 .btn {
   border: none;
 
-  border-radius: 16px;
+  border-radius: var(--button-radius);
 
-  background: #334155;
+  background: var(--surface-light);
 
-  color: white;
+  color: var(--text-primary);
 
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  user-select: none;
+
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
+
+/* ==========================================
+   Hover
+========================================== */
 
 .btn:hover {
   background: #475569;
 
   transform: translateY(-2px);
+
+  box-shadow: 0 8px 16px rgba(0,0,0,.25);
 }
 
+/* ==========================================
+   Active
+========================================== */
+
 .btn:active {
-  transform: scale(0.96);
+  transform: scale(.96);
 }
+
+/* ==========================================
+   Secondary Buttons
+========================================== */
 
 .btn-secondary {
   background: #475569;
 }
 
-.btn-operator {
-  background: #2563eb;
+.btn-secondary:hover {
+  background: #64748b;
 }
 
-.btn-equals {
-  background: #16a34a;
+/* ==========================================
+   Operator Buttons
+========================================== */
+
+.btn-operator {
+  background: var(--primary-color);
+
+  color: white;
 }
+
+.btn-operator:hover {
+  background: #1d4ed8;
+}
+
+/* ==========================================
+   Equals Button
+========================================== */
+
+.btn-equals {
+  background: var(--success-color);
+
+  color: white;
+}
+
+.btn-equals:hover {
+  background: #15803d;
+}
+
+/* ==========================================
+   Zero Button
+========================================== */
 
 .btn-zero {
   grid-column: span 2;
 }
 
-.display-history {
-  font-size: 1rem;
-  color: var(--text-secondary);
+/* ==========================================
+   Focus Accessibility
+========================================== */
+
+.btn:focus-visible {
+  outline: 3px solid rgba(37,99,235,.45);
+
+  outline-offset: 2px;
 }
 
-.display-result {
-  font-size: 3.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
+/* ==========================================
+   Disabled State
+========================================== */
+
+.btn:disabled {
+  opacity: .5;
+
+  cursor: not-allowed;
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   Footer
+========================================== */
+
+.app-footer {
+  min-height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 20px;
+
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.app-footer p {
+  text-align: center;
+
+  font-size: .75rem;
+
+  color: var(--text-muted);
+
+  letter-spacing: .05em;
+
+  line-height: 1.6;
+}
+
+.footer-line2 {
+  display: inline;
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 768px) {
+
+  .app-main {
+    padding: 24px;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: 430px;
+
+    min-height: 640px;
+  }
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 500px) {
+
+  .app-header {
+    height: 70px;
+  }
+
+  .app-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .app-main {
+    padding: 14px;
+    align-items: stretch;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: none;
+
+    min-height: calc(100dvh - 110px);
+
+    border-radius: 18px;
+  }
+
+  .calculator-header {
+    height: 60px;
+  }
+
+  .calculator-display {
+    min-height: 120px;
+
+    padding: 18px;
+  }
+
+  .display-history {
+    font-size: .85rem;
+  }
+
+  .display-result {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .calculator-keypad {
+    gap: 10px;
+
+    padding: 16px;
+  }
+
+  .btn {
+    min-height: 58px;
+
+    font-size: 1.1rem;
+
+    border-radius: 14px;
+  }
+
+  .app-footer {
+    padding: 12px;
+  }
+
+  .footer-line2 {
+    display: block;
+  }
+
+}
+
+/* ==========================================
+   Small Phones
+========================================== */
+
+@media (max-width: 360px) {
+
+  .calculator-display {
+    min-height: 105px;
+  }
+
+  .display-result {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    min-height: 52px;
+
+    font-size: 1rem;
+  }
+
+}
+
+/* ==========================================
+   Large Desktop
+========================================== */
+
+@media (min-width: 1200px) {
+
+  .calculator {
+
+    width: 460px;
+
+    min-height: 700px;
+  }
+
+  .display-result {
+
+    font-size: 3.5rem;
+  }
+
+}
+
+/* ==========================================
+   Reduced Motion
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+
+    scroll-behavior: auto;
+
+    transition: none !important;
+
+    animation: none !important;
+  }
+
 }
